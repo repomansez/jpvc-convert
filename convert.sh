@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 check_prerequisites() {
 	if [ $(id -u) = 0 ]; then
 		echo "Please do not run this script as root, run it as the user you'll use to play the game"
@@ -33,17 +32,21 @@ patch_files() {
 delete_files() {
 	echo "Deleting files that aren't on the japanese version"
 	while read -r file; do
-		rm "${file}"
+		if [ -f "${file}" ]; then
+			rm "${file}" 1> /dev/null
+		fi
 	done < jp_cnvrt_files/files_to_delete.txt
 }
 
 copy_files() {
 	echo "Copying japanese-exclusive files"
+	sleep 2
 	cp -r jp_cnvrt_files/extra_files/* $(pwd)
 }
 
 copy_set() {
 	echo "Copying set file"
+	sleep 2
 	documents="${WINE_PREFIX}/drive_c/users/$(whoami)/Documents"
 	user_files="${documents}/GTA Vice City User Files"
 	mkdir -p "${documents}"
@@ -77,6 +80,7 @@ test_files() {
 }
 
 main() {
+	clear
 	echo -e "\nWelcome to the GTA: Vice City - English to Japanese Converter - Linux edition"
 	echo "This converts everything in such a way that your new copy will be identical to the Japanese copy (with a No-CD EXE)."
 	sleep 3
@@ -88,6 +92,7 @@ main() {
 
 	check_prerequisites
 	patch_files
+	delete_files
 	copy_files
 	copy_set
 	test_files
