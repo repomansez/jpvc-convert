@@ -7,4 +7,6 @@ A Linux tool to convert any GTA: Vice City version to the Japanese version of th
 - xdelta3
 
 ## How to use
-- Copy the files to your GTA VICE CITY installation file and run convert.sh
+- Launch the game once to generate your Wine prefix;
+- Export your WINE_PREFIX environment variable, making it point to your prefix;
+- Copy the files to your GTA VICE CITY installation file and run convert.sh.
