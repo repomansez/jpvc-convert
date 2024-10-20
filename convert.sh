@@ -1,16 +1,6 @@
 #!/bin/sh
 
 
-echo "Welcome to the GTA: Vice City - English to Japanese Converter - Linux edition"
-#sleep 1
-echo "This converts everything in such a way that your new copy will be identical to the Japanese copy (with a No-CD EXE)."
-#sleep 3
-echo -e "\nPlease make sure to unpack and run this script in the same directory as your Vice City installation"
-echo -e "\nPlease make sure to set your Wine Prefix in the WINE_PREFIX environment variable"
-
-echo -e "\nPress enter to continue"
-read nothing
-
 check_prerequisites() {
 	if [ $(id -u) = 0 ]; then
 		echo "Please do not run this script as root, run it as the user you'll use to play the game"
@@ -35,7 +25,7 @@ patch_files() {
 	echo "Patching files..."
 	while read -r file; do
 		mv "$file" "$file.old"
-		xdelta3 -d -f -s "$file.old" ../jp_cnvrt_files/patches/${file}.xdelta ${file}
+		xdelta3 -d -f -s "$file.old" jp_cnvrt_files/patches/${file}.xdelta ${file}
 		rm -f "${file}.old"
 	done < jp_cnvrt_files/files_to_patch.txt ## REMEMBER TO REMOVE ..
 }
@@ -44,7 +34,7 @@ delete_files() {
 	echo "Deleting files that aren't on the japanese version"
 	while read -r file; do
 		rm "${file}"
-	done < ../jp_cnvrt_files/files_to_delete.txt
+	done < jp_cnvrt_files/files_to_delete.txt
 }
 
 copy_files() {
@@ -87,6 +77,15 @@ test_files() {
 }
 
 main() {
+	echo -e "\nWelcome to the GTA: Vice City - English to Japanese Converter - Linux edition"
+	echo "This converts everything in such a way that your new copy will be identical to the Japanese copy (with a No-CD EXE)."
+	sleep 3
+	echo -e "\nPlease make sure to unpack and run this script in the same directory as your Vice City installation"
+	echo -e "\nPlease make sure to set your Wine Prefix in the WINE_PREFIX environment variable"
+	echo -e "\nPress enter to continue"
+
+	read nothing
+
 	check_prerequisites
 	patch_files
 	copy_files
