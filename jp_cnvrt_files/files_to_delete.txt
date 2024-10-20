@@ -1,0 +1,15 @@
+models/INTRO.TXD
+mp3/MP3Report.txt
+ReadMe/ReadMe_FRENCH.txt
+ReadMe/ReadMe_GERMAN.txt
+ReadMe/Readme_ITALIAN.txt
+ReadMe/ReadMe_SPANISH.txt
+TEXT/american.gxt
+TEXT/french.gxt
+TEXT/german.gxt
+TEXT/italian.gxt
+TEXT/spanish.gxt
+installscript.vdf
+testapp.exe
+gta-vc.exe
+README.txt
