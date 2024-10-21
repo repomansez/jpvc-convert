@@ -13,3 +13,6 @@ A Linux tool to convert any GTA: Vice City version to the Japanese version of th
 
 ## Disclaimer 
 While this tool works exactly like the approved one, it has yet not been reviewed and/or approved by a VC leaderboard moderator, so until I'm able to verify with them, using this may get your run refused on the srcom leaderboards.
+
+## License
+The script itself is licensed under the GPL version 3, but the contents of the jp_cnvrt_files directory are copyrighted to their respective owners. #dontsuemetaketwo
