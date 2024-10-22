@@ -17,6 +17,9 @@ check_prerequisites() {
 	elif ! [ -d "${WINE_PREFIX}" ]; then
 		echo "Invalid WINE_PREFIX, please check for typos and permission issues"
 		exit 1
+	elif [ -f TEXT/Japanese.gxt ]; then
+		echo "This game has already been converted, exiting."
+		exit 0
 	fi
 }
 
