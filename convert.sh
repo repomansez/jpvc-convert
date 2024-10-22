@@ -56,7 +56,7 @@ copy_set() { # Copies the JP set file to your documents directory on the WINE_PR
     cp jp_cnvrt_files/gta_vc.set "${user_files}"
 }
 
-test_files() { # Calculates the MD5 hash and compares them to the table, making sure they're been converted properly
+test_files() { # Calculates the MD5 hash and compares them to the table, making sure they've been converted properly
     echo "Testing files..."
     incorrectFiles=0
     while IFS=',' read -r expectedHash filePath; do
