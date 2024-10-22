@@ -7,7 +7,7 @@ check_prerequisites() {
     elif ! [ "$(command -v xdelta3)" ]; then
         echo "xdelta3 not found. Please install it."
         exit 1
-    elif ! [ -f gta-vc.exe ]; then ## REMEMBER TO ADD !
+    elif ! [ -f gta-vc.exe ]; then 
         echo "Please unpack and run this script in the same directory as your Vice City installation"
         exit 1
     elif [ -z "${WINE_PREFIX}" ]; then
@@ -22,13 +22,13 @@ check_prerequisites() {
     fi
 }
 
-patch_files() {
+patch_files() { # Reads the files from the TXT file and uses xdelta3 to patch them one by one 
     echo "Patching files..."
     while read -r file; do
         mv "$file" "$file.old"
         xdelta3 -d -f -s "$file.old" "jp_cnvrt_files/patches/${file}.xdelta" "${file}"
         rm -f "${file}.old"
-    done < jp_cnvrt_files/files_to_patch.txt ## REMEMBER TO REMOVE ..
+    done < jp_cnvrt_files/files_to_patch.txt 
 }
 
 delete_files() {
@@ -46,7 +46,7 @@ copy_files() {
     cp -r jp_cnvrt_files/extra_files/* "$(pwd)"
 }
 
-copy_set() {
+copy_set() { # Copies the JP set file to your documents directory on the WINE_PREFIX
     echo "Copying set file"
     sleep 2
     documents="${WINE_PREFIX}/drive_c/users/$(whoami)/Documents"
@@ -56,7 +56,7 @@ copy_set() {
     cp jp_cnvrt_files/gta_vc.set "${user_files}"
 }
 
-test_files() {
+test_files() { # Calculates the MD5 hash and compares them to the table, making sure they're been converted properly
     echo "Testing files..."
     incorrectFiles=0
     while IFS=',' read -r expectedHash filePath; do
