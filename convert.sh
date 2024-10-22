@@ -33,6 +33,7 @@ patch_files() { # Reads the files from the TXT file and uses xdelta3 to patch th
 
 delete_files() {
     echo "Deleting files that aren't on the Japanese version"
+    sleep 2
     while read -r file; do
         if [ -f "${file}" ]; then
             rm "${file}" 1> /dev/null
