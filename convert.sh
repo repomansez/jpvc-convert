@@ -24,6 +24,7 @@ check_prerequisites() {
 
 patch_files() { # Reads the files from the TXT file and uses xdelta3 to patch them one by one 
     echo "Patching files..."
+    mv readMe.txt ReadMe.txt
     while read -r file; do
         mv "$file" "$file.old"
         xdelta3 -d -f -s "$file.old" "jp_cnvrt_files/patches/${file}.xdelta" "${file}"

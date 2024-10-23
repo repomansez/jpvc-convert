@@ -31,3 +31,4 @@ models/gta3.dir
 models/gta3.img
 models/MISC.TXD
 txd/LOADSC0.TXD
+ReadMe/ReadMe.txt
