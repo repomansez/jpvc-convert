@@ -10,11 +10,11 @@ check_prerequisites() {
     elif ! [ -f gta-vc.exe ]; then 
         echo "Please unpack and run this script in the same directory as your Vice City installation"
         exit 1
-    elif [ -z "${WINE_PREFIX}" ]; then
-        echo "Please set your WINE_PREFIX variable with export WINE_PREFIX=/path/to/your/prefix"
+    elif [ -z "${WINEPREFIX}" ]; then
+        echo "Please set your WINEPREFIX variable with export WINEPREFIX=/path/to/your/prefix"
         exit 1
-    elif ! [ -d "${WINE_PREFIX}" ]; then
-        echo "Invalid WINE_PREFIX, please check for typos and permission issues"
+    elif ! [ -d "${WINEPREFIX}" ]; then
+        echo "Invalid WINEPREFIX, please check for typos and permission issues"
         exit 1
     elif [ -f TEXT/Japanese.gxt ]; then
         echo "This game has already been converted, exiting."
@@ -48,10 +48,10 @@ copy_files() {
     cp -r jp_cnvrt_files/extra_files/* "$(pwd)"
 }
 
-copy_set() { # Copies the JP set file to your documents directory on the WINE_PREFIX
+copy_set() { # Copies the JP set file to your documents directory on the WINEPREFIX
     echo "Copying set file"
     sleep 2
-    documents="${WINE_PREFIX}/drive_c/users/$(whoami)/Documents"
+    documents="${WINEPREFIX}/drive_c/users/$(whoami)/Documents"
     user_files="${documents}/GTA Vice City User Files"
     mkdir -p "${documents}"
     mkdir -p "${user_files}"
@@ -89,7 +89,7 @@ main() {
     printf "This converts everything in such a way that your new copy will be identical to the Japanese copy (with a No-CD EXE)."
     sleep 3
     printf "\nPlease make sure to unpack and run this script in the same directory as your Vice City installation"
-    printf "\nPlease make sure to set your Wine Prefix in the WINE_PREFIX environment variable"
+    printf "\nPlease make sure to set your Wine Prefix in the WINEPREFIX environment variable"
     printf "\nPress enter to continue"
 
     read -r nothing
