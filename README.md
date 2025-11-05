@@ -10,7 +10,7 @@ The usage of this tool is allowed on the official speedrun.com leaderboards.
 
 ## How to use
 - Launch the game once to generate your Wine prefix;
-- Export your WINE_PREFIX environment variable, making it point to your prefix;
+- Export your WINEPREFIX environment variable, making it point to your prefix;
 - Copy the files to your GTA VICE CITY installation folder and run `convert.sh`.
 
 ## How it works
