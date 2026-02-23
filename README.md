@@ -2,6 +2,8 @@
 
 A Linux tool to convert any GTA: Vice City version to the Japanese version of the game - based on zoton2's script but for Linux.
 
+This script is feature-complete, so it should still work even if no commit has been made for years.
+
 The usage of this tool is allowed on the official speedrun.com leaderboards.
 
 ## Dependencies
